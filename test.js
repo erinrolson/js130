@@ -1,24 +1,22 @@
-function Pet(name, image) {
-  this.name = name;
-  this.image =  image;
-}
-let Image;
-var catImage;
-var pudding;
+// make a frequency map function 
 
-
-
-Pet.prototype.walk = function() {
-  console.log(`${this.name} is walking.`);
-};
-
-
-
-Image = class  {
-  constructor(file) {
-    this.file = file;
-  }
+function frequencyMap(string) {
+  let resultObj = {};
+  
+  [...string].forEach(char => {
+    resultObj[char] = resultObj[char] ? resultObj[char] + 1 : 1;
+  });
+  
+  return resultObj;
 }
 
-catImage = new Image("cat.png");
-pudding = new Pet("Pudding", catImage);
+console.log(frequencyMap('apple'));
+
+let string = 'apple';
+let test = [...string].reduce((obj, char) => {
+  //obj[char] = obj[char] ? obj[char] + 1 : 1;
+  obj[char] = (obj[char] + 1) || 1;
+  return obj;
+}, {});
+
+console.log(test);
